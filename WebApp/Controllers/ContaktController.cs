@@ -1,47 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
+using WebApp.Models.Services;
 
 namespace WebApp.Controllers;
 
 public class ContaktController : Controller
 {
-    private static Dictionary<int, ContactModel> _contacts = new()
-    {
-        {1,new ContactModel
-            {
-                Id = 1,
-                FirstName = "Adam",
-                LastName = "Kozak",
-                phoneNumber = "111 222 333",
-                Birthday = new DateOnly(1980,1,1)
-            }
-            
-        },
-        {2,new ContactModel
-        {
-            Id = 2,
-            FirstName = "Bartosz",
-            LastName = "Luzak",
-            phoneNumber = "222 333 444",
-            Birthday = new DateOnly(2002,4,20)
-        }},
-        {3,new ContactModel
-            {
-            Id = 3,
-            FirstName = "Bartosz",
-            LastName = "Guzak",
-            phoneNumber = "333 444 555",
-            Birthday = new DateOnly(2003,4,20)
-            }
-        }
-    };
+    private readonly IContactService _contactService;
 
-    private static int _currentId = 3;
-    
+    public ContaktController(IContactService contactService)
+    {
+        _contactService = contactService;
+    }
+
     // Lista kontaktów
     public IActionResult Index()
     {
-        return View(_contacts);
+        return View(_contactService.GetAll());
     }
     // formularz dodania kontatku
     [HttpGet]
@@ -58,8 +33,32 @@ public class ContaktController : Controller
         {
             return View();
         }
-        model.Id = ++_currentId;
-        _contacts.Add(model.Id, model);
-        return View("Index",_contacts);
+        _contactService.Add(model);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public IActionResult Delete(int id)
+    {
+        _contactService.Delete(id);
+        return RedirectToAction(nameof(Index));
+    }
+    public ActionResult Edit(int id)
+    {
+        return View(_contactService.GetById(id));
+    }
+
+    [HttpPost]
+    public ActionResult Edit(ContactModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View();
+        }
+        _contactService.Update(model);
+        return RedirectToAction(nameof(Index));
+    }
+    public IActionResult Details(int id)
+    {
+        return View(_contactService.GetById(id));
     }
 }
