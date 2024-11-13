@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\projekt rider\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj": {}
+    "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj": {}
   },
   "projects": {
-    "E:\\projekt rider\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj": {
+    "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projekt rider\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "E:\\projekt rider\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
+        "projectPath": "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
         "packagesPath": "C:\\Users\\ribci\\.nuget\\packages\\",
-        "outputPath": "E:\\projekt rider\\LaboratoriumASP.NET\\WebApp\\obj\\",
+        "outputPath": "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ribci\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -64,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
