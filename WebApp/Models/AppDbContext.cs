@@ -5,13 +5,14 @@ namespace WebApp.Models;
 public class AppDbContext : DbContext
 {
     public DbSet<ContactEntity> Contacts { get; set; }
+    public DbSet<OrganizationEntity> Organizations { get; set; }
     private string DbPath { get; set; }
-
     public AppDbContext()
     {
         var folder = Environment.SpecialFolder.LocalApplicationData;
         var path = Environment.GetFolderPath(folder);
-        DbPath = Path.Combine(path, "contacts.db");
+        DbPath = Path.Join(path, "contacts.db");
+        
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -21,28 +22,54 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<ContactEntity>()
+        modelBuilder.Entity<OrganizationEntity>()
+            .ToTable("Organizations")
             .HasData(
-                new ContactEntity()
+                new OrganizationEntity()
                 {
-                    Id = 1,
-                    FirstName = "John",
-                    LastName = "Doe",
-                    Email = "john.doe@gmail.com",
-                    phoneNumber = "123123123",
-                    Birthday = new DateOnly(year: 2000, month:10, day:10),
-                    Created = DateTime.Now
+                    Id = 101,
+                    NIP = "321312321",
+                    Name = "Wsei",
+                    REGON = "321312321",
                 },
-        new ContactEntity()
+                new OrganizationEntity()
+                {
+                    Id = 102,
+                    NIP = "232332323",
+                    Name = "Firma",
+                    REGON = "2342342423"
+                }
+            );
+        modelBuilder.Entity<OrganizationEntity>()
+            .OwnsOne(o => o.Adress)
+            .HasData(
+                new {OrganizationEntityId = 101, Street = "Św.Filipa",City = "Kraków"},
+                new{OrganizationEntityId = 102, Street = "ŚW Igora", City= "Kraków"}
+            );
+    modelBuilder.Entity<ContactEntity>()
+        .Property(c => c.OrganizationId)
+        .HasDefaultValue(101);
+    modelBuilder.Entity<ContactEntity>()
+            .HasData(new ContactEntity
             {
-                Id = 2,
-                FirstName = "Jacek",
-                LastName = "Mazur",
-                Email = "john.mazur@gmail.com",
-                phoneNumber = "696123123",
-                Birthday = new DateOnly(year: 2000, month:11, day:10),
-                Created = DateTime.Now
-            }
-                );
+                Id = 1, 
+                FirstName = "John", 
+                LastName = "Doe", 
+                Email = "john.doe@gmail.com",
+                phoneNumber = "123 123 321",
+                Birthday = new DateOnly(1980,1,1),
+                Created = DateTime.Now,
+                OrganizationId = 101,
+            },new ContactEntity
+            {
+                Id = 2, 
+                FirstName = "John", 
+                LastName = "Doe", 
+                Email = "john.doe@gmail.com" ,
+                phoneNumber = "123 123 321",
+                Birthday = new DateOnly(1980,1,1),
+                Created = DateTime.Now,
+                OrganizationId = 101,
+            });
     }
 }

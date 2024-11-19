@@ -22,6 +22,9 @@
                 @Html.DisplayNameFor(models =>models[0].Category )
             </th>
             <th>
+                @Html.DisplayNameFor(models =>models[0].Organization)
+            </th>
+            <th>
                 Operacje
             </th>
         </tr>
@@ -38,6 +41,9 @@
                 </td>
                 <td>
                     @entry.Category.GetDisplayName()
+                </td>
+                <td>
+                    @(entry.Organization?.Name??"Brak Organizacji")
                 </td>
                 <td>
                     <a CLASS="btn btn-success" asp-action="Edit" asp-controller="Contakt" asp-route-id="@entry.Id">Edytuj</a>

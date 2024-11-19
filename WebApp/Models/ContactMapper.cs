@@ -2,34 +2,35 @@ namespace WebApp.Models;
 
 public class ContactMapper
 {
-    public static ContactEntity ToEntity(ContactModel arg)
+    public static ContactEntity ToEntity(ContactModel model)
     {
         return new ContactEntity()
         {
-            Id = arg.Id,
-            FirstName = arg.FirstName,
-            LastName = arg.LastName,
-            Birthday = arg.Birthday,
-            Email = arg.Email,
-            phoneNumber = arg.phoneNumber,
-            Category = arg.Category,
-            
+            Id = model.Id,
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            phoneNumber = model.phoneNumber,
+            Email = model.Email,
+            Birthday = model.Birthday,
+            Category = model.Category,
+            Organization = model.Organization,
+            OrganizationId = model.OrganizationId,
         };
-
     }
 
-    public static ContactModel FromEntity(ContactEntity arg)
+    public static ContactModel FromEntity(ContactEntity model)
     {
         return new ContactModel()
         {
-            Id = arg.Id,
-            FirstName = arg.FirstName,
-            LastName = arg.LastName,
-            Birthday = arg.Birthday,
-            Email = arg.Email,
-            phoneNumber = arg.phoneNumber,
-            Category = arg.Category,
+            Id = model.Id,
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            phoneNumber = model.phoneNumber,
+            Email = model.Email,
+            Birthday = model.Birthday,
+            Category = model.Category,
+            Organization = model.Organization,
+            OrganizationId = model.OrganizationId,
         };
-
     }
 }

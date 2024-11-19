@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e38j3XCX6NM=",
+  "dgSpecHash": "LsrvrAbVwyk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
+  "projectFilePath": "C:\\Users\\ribci\\RiderProjects\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ribci\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ribci\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

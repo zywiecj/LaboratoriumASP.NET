@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj": {}
+    "C:\\Users\\ribci\\RiderProjects\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj": {
+    "C:\\Users\\ribci\\RiderProjects\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\ribci\\RiderProjects\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
+        "projectPath": "C:\\Users\\ribci\\RiderProjects\\LaboratoriumASP.NET\\WebApp\\WebApp.csproj",
         "packagesPath": "C:\\Users\\ribci\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ribci\\Downloads\\LaboratoriumASP.NET\\WebApp\\obj\\",
+        "outputPath": "C:\\Users\\ribci\\RiderProjects\\LaboratoriumASP.NET\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ribci\\AppData\\Roaming\\NuGet\\NuGet.Config",

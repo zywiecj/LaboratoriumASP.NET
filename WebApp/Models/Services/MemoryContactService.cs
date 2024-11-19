@@ -57,7 +57,7 @@ public class MemoryContactService : IContactService
 
     public void Delete(int id)
     {
-       _contacts.Remove(id);
+        _contacts.Remove(id);
     }
 
     public List<ContactModel> GetAll()
@@ -68,5 +68,10 @@ public class MemoryContactService : IContactService
     public ContactModel? GetById(int id)
     {
         return _contacts[id];
+    }
+
+    public List<OrganizationEntity> GetAllOrganizations()
+    {
+        throw new NotImplementedException();
     }
 }
