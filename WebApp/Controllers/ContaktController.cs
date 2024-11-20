@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
 using WebApp.Models.Services;
 
 namespace WebApp.Controllers;
+[Authorize(Roles = "admin, user")]
 
 public class ContaktController : Controller
 {
@@ -12,7 +14,7 @@ public class ContaktController : Controller
     {
         _contactService = contactService;
     }
-
+    [AllowAnonymous]
     // Lista kontaktów
     public IActionResult Index()
     {
